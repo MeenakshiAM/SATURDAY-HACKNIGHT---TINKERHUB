@@ -2,6 +2,7 @@ import streamlit as st
 from pptx import Presentation
 from docx import Document
 from transformers import pipeline
+import fitz
 import time
 
 # To Load pretrained summarization model
@@ -32,9 +33,9 @@ def extract_text_from_pdf(uploaded_file):
     return text
 
 fun_facts = [
-    "Fools who don’t respect the past are likely to repeat it.  - Nico Robin",
+    "Fools who don’t respect the past are likely to repeat it.   - Nico Robin",
     "No matter how hard or impossible it is, never lose sight of your goal.  - Monkey D Luffy.",
-    "The first computer virus was created in 1983.",
+    "The difference between the novice and the master is that the master has failed more times than the novice has tried.  -Koro-sensei",
     "The first website is still online: info.cern.ch.",
     "More than 2.5 quintillion bytes of data are created every day.",
 ]
@@ -88,7 +89,7 @@ with col1:
 
 # Fun facts in the second column
 with col2:
-    st.write("## Fun Facts")
+    st.write("## Anime Quotes")
     for fact in fun_facts:
         st.markdown(f"""
         <div style="background-color: #ffeb3b; border-radius: 10px; padding: 10px; margin-bottom: 10px; color: black;">
