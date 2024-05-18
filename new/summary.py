@@ -1,22 +1,22 @@
 import streamlit as st
 from pptx import Presentation
-from io import BytesIO
 from docx import Document
 from transformers import pipeline
 
 # Load pretrained summarization model
 summarizer = pipeline("summarization")
 
+# Function to extract text from a PowerPoint file
 def extract_text_from_ppt(ppt):
-    pr=Presentation(ppt)
-    text=[]
+    pr = Presentation(ppt)
+    text = []
     for slide in pr.slides:
         for shape in slide.shapes:
-            if hasattr(shape,"text"):
+            if hasattr(shape, "text"):
                 text.append(shape.text)
     return "\n".join(text)
 
-
+# Function to extract text from a Word document
 def extract_text_from_docx(file):
     text = ""
     doc = Document(file)
@@ -24,12 +24,17 @@ def extract_text_from_docx(file):
         text += para.text + "\n"
     return text
 
-# Streamlit app
-st.set_page_config(page_title="Document text summarizer", page_icon=":bar_chart:",layout="wide")
+# Streamlit app configuration
+st.set_page_config(page_title="Document Text Summarizer", page_icon=":bar_chart:", layout="wide")
 st.title(":bar_chart: Document Text Summarizer")
-import streamlit as st
-st.image('study.jpg', caption='Learning made easy')
 
+# Display an image
+try:
+    st.image('study.jpg', caption='Learning made easy')
+except FileNotFoundError:
+    st.warning("Image file 'study.jpg' not found.")
+
+# File uploader for PPTX or DOCX files
 uploaded_file = st.file_uploader("Upload a PPT or Word document", type=["pptx", "docx"])
 
 if uploaded_file:
@@ -41,7 +46,16 @@ if uploaded_file:
 
     st.write("Extracted Text:")
     st.write(extracted_text)
-    summary = summarizer(extracted_text, max_length=150, min_length=30, do_sample=False)
-
-    st.write("Summary:")
-    st.write(summary[0]['summary_text'])
+    
+    # Ask user for summary length
+    st.write("Set Summary Length:")
+    min_length = st.number_input("Minimum Length of Summary", min_value=30, max_value=100, value=30)
+    max_length = st.number_input("Maximum Length of Summary", min_value=50, max_value=500, value=150)
+    
+    if st.button("Generate Summary"):
+        if extracted_text:
+            summary = summarizer(extracted_text, max_length=max_length, min_length=min_length, do_sample=False)
+            st.write("Summary:")
+            st.write(summary[0]['summary_text'])
+        else:
+            st.write("No text extracted to summarize.")
