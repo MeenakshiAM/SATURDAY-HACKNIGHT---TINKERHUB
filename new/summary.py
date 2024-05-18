@@ -36,8 +36,8 @@ def extract_text_from_pdf(uploaded_file):
 
 # Fun facts list
 fun_facts = [
-    "Did you know? The first computer programmer was Ada Lovelace.",
-    "Python is named after Monty Python, not the snake.",
+    "Fools who don’t respect the past are likely to repeat it.  - Nico Robin",
+    "No matter how hard or impossible it is, never lose sight of your goal.  - Monkey D Luffy.",
     "The first computer virus was created in 1983.",
     "The first website is still online: info.cern.ch.",
     "More than 2.5 quintillion bytes of data are created every day.",
