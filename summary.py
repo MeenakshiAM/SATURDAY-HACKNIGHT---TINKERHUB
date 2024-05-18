@@ -27,7 +27,8 @@ def extract_text_from_docx(file):
 # Streamlit app
 st.set_page_config(page_title="Document text summarizer", page_icon=":bar_chart:",layout="wide")
 st.title(":bar_chart: Document Text Summarizer")
-st.image
+import streamlit as st
+st.image('sunrise.jpg', caption='Sunrise by the mountains')
 
 uploaded_file = st.file_uploader("Upload a PPT or Word document", type=["pptx", "docx"])
 
