@@ -2,7 +2,7 @@ import streamlit as st
 from pptx import Presentation
 from docx import Document
 from transformers import pipeline
-import fitz  # PyMuPDF
+
 
 # Load pretrained summarization model
 summarizer = pipeline("summarization")
