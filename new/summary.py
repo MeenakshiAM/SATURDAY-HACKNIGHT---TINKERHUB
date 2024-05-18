@@ -25,12 +25,12 @@ def extract_text_from_docx(file):
     return text
 
 # Streamlit app configuration
-st.set_page_config(page_title="Document Text Summarizer", page_icon=":bar_chart:", layout="wide")
-st.title(":bar_chart: Document Text Summarizer")
+st.set_page_config(page_title="Document Text Summarizer", page_icon="🗒️", layout="wide")
+st.title("🗒️  NOTES BUILDER CHAN")
 
 # Display an image
 try:
-    st.image('study.jpg', caption='Learning made easy')
+    st.image('study.jpg', caption='THE ONE AND ONLY')
 except FileNotFoundError:
     st.warning("Image file 'study.jpg' not found.")
 
@@ -55,7 +55,7 @@ if uploaded_file:
     if st.button("Generate Summary"):
         if extracted_text:
             summary = summarizer(extracted_text, max_length=max_length, min_length=min_length, do_sample=False)
-            st.write("Summary:")
+            st.write("SUMMARY :")
             st.write(summary[0]['summary_text'])
         else:
             st.write("No text extracted to summarize.")
