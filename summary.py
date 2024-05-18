@@ -25,7 +25,8 @@ def extract_text_from_docx(file):
     return text
 
 # Streamlit app
-st.title("Document Text Summarizer")
+st.set_page_config(page_title="Document text summarizer", page_icon=":bar_chart:",layout="wide")
+st.title(":bar_chart: Document Text Summarizer")
 
 uploaded_file = st.file_uploader("Upload a PDF or Word document", type=["pdf", "docx"])
 
