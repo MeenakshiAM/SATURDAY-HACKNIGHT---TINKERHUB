@@ -5,7 +5,7 @@ from transformers import pipeline
 import fitz
 import time
 
-# To Load pretrained summarization model
+# Load pretrained summarization model
 summarizer = pipeline("summarization")
 
 def extract_text_from_ppt(ppt):
@@ -52,40 +52,44 @@ with col1:
     except FileNotFoundError:
         st.warning("Image file 'study.jpg' not found.")
 
-
+    # File uploader for PPTX, DOCX, or PDF files
     uploaded_file = st.file_uploader("Upload a PPT, DOCX, or PDF document", type=["pptx", "docx", "pdf"])
 
-    if uploaded_file:
-        file_ext = uploaded_file.name.split(".")[-1]
-        if file_ext == "pptx":
-            extracted_text = extract_text_from_ppt(uploaded_file)
-        elif file_ext == "docx":
-            extracted_text = extract_text_from_docx(uploaded_file)
-        elif file_ext == "pdf":
-            extracted_text = extract_text_from_pdf(uploaded_file)
+    # Text input for direct text entry
+    user_input_text = st.text_area("Input Text for Summarization", "")
 
-        st.write("Extracted Text:")
-        st.write(extracted_text)
-        
-        # Ask user for summary length
-        st.write("Set Summary Length:")
-        min_length = st.number_input("Minimum Length of Summary", min_value=30, max_value=100, value=30)
-        max_length = st.number_input("Maximum Length of Summary", min_value=50, max_value=500, value=150)
-        
-        if st.button("Generate Summary"):
-            if extracted_text:
-                st.write("Enjoy the music while you wait...")
-                # Play audio
-                st.audio('audio.mp3', format='audio/mp3', start_time=0)
-                
-                # Generate summary
-                with st.spinner('Generating summary...'):
-                    time.sleep(5)  # Simulate time delay
-                    summary = summarizer(extracted_text, max_length=max_length, min_length=min_length, do_sample=False)
-                    st.write("SUMMARY :")
-                    st.write(summary[0]['summary_text'])
-            else:
-                st.write("No text extracted to summarize.")
+    if st.button("Generate Summary"):
+        if uploaded_file:
+            file_ext = uploaded_file.name.split(".")[-1]
+            if file_ext == "pptx":
+                extracted_text = extract_text_from_ppt(uploaded_file)
+            elif file_ext == "docx":
+                extracted_text = extract_text_from_docx(uploaded_file)
+            elif file_ext == "pdf":
+                extracted_text = extract_text_from_pdf(uploaded_file)
+        elif user_input_text:
+            extracted_text = user_input_text
+        else:
+            st.write("Please upload a file or enter some text for summarization.")
+
+        if extracted_text:
+            st.write("Enjoy the music while you wait...")
+            # Play audio
+            st.audio('audio.mp3', format='audio/mp3', start_time=0)
+            
+            # Generate summary
+            with st.spinner('Generating summary...'):
+                time.sleep(5)  # Simulate time delay
+                summary = summarizer(extracted_text, max_length=500, min_length=100, do_sample=False)
+                # Adjust summary to ensure it falls within the desired range
+                if len(summary[0]['summary_text'].split()) < 100:
+                    st.warning("Summary is too short. Increasing length...")
+                    summary = summarizer(extracted_text, max_length=500, min_length=100, do_sample=False)
+                elif len(summary[0]['summary_text'].split()) > 500:
+                    st.warning("Summary is too long. Decreasing length...")
+                    summary = summarizer(extracted_text, max_length=500, min_length=100, do_sample=False)
+                st.write("SUMMARY :")
+                st.write(summary[0]['summary_text'])
 
 # Fun facts in the second column
 with col2:
