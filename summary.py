@@ -1,22 +1,22 @@
 import streamlit as st
-import PyPDF2
+from pptx import Presentation
+from io import BytesIO
 from docx import Document
 from transformers import pipeline
 
 # Load pretrained summarization model
 summarizer = pipeline("summarization")
 
-# Function to extract text from PDF file
-def extract_text_from_pdf(file):
-    text = ""
-    with open(file, "rb") as f:
-        reader = PyPDF2.PdfFileReader(f)
-        for page_num in range(reader.numPages):
-            page = reader.getPage(page_num)
-            text += page.extractText()
-    return text
+def extract_text_from_ppt(ppt):
+    pr=Presentation(ppt)
+    text=[]
+    for slide in pr.slides:
+        for shape in slide.shapes:
+            if hasattr(shape,"text"):
+                text.append(shape.text)
+    return "\n".join(text)
 
-# Function to extract text from Word document
+
 def extract_text_from_docx(file):
     text = ""
     doc = Document(file)
@@ -27,13 +27,14 @@ def extract_text_from_docx(file):
 # Streamlit app
 st.set_page_config(page_title="Document text summarizer", page_icon=":bar_chart:",layout="wide")
 st.title(":bar_chart: Document Text Summarizer")
+st.image
 
-uploaded_file = st.file_uploader("Upload a PDF or Word document", type=["pdf", "docx"])
+uploaded_file = st.file_uploader("Upload a PPT or Word document", type=["pptx", "docx"])
 
 if uploaded_file:
     file_ext = uploaded_file.name.split(".")[-1]
-    if file_ext == "pdf":
-        extracted_text = extract_text_from_pdf(uploaded_file)
+    if file_ext == "pptx":
+        extracted_text = extract_text_from_ppt(uploaded_file)
     elif file_ext == "docx":
         extracted_text = extract_text_from_docx(uploaded_file)
 
