@@ -36,8 +36,8 @@ fun_facts = [
     "Fools who don’t respect the past are likely to repeat it.   - Nico Robin",
     "No matter how hard or impossible it is, never lose sight of your goal.  - Monkey D Luffy.",
     "The difference between the novice and the master is that the master has failed more times than the novice has tried.  -Koro-sensei",
-    "The first website is still online: info.cern.ch.",
-    "More than 2.5 quintillion bytes of data are created every day.",
+    "I never treated anyone as ally. they are just tools. All that matters in winning- Ayanokyoji Kiyotaka",
+    "The world is curel but also beautiful. - Mikasa Ackerman "
 ]
 
 st.set_page_config(page_title="Document Text Summarizer", page_icon="🗒️", layout="wide")
