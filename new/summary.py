@@ -2,7 +2,6 @@ import streamlit as st
 from pptx import Presentation
 from docx import Document
 from transformers import pipeline
-import fitz  # PyMuPDF
 import time
 
 # To Load pretrained summarization model
@@ -51,6 +50,7 @@ with col1:
         st.image('study.jpg', caption='THE ONE AND ONLY')
     except FileNotFoundError:
         st.warning("Image file 'study.jpg' not found.")
+
 
     uploaded_file = st.file_uploader("Upload a PPT, DOCX, or PDF document", type=["pptx", "docx", "pdf"])
 
