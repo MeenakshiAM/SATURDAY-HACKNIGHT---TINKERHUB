@@ -41,7 +41,7 @@ fun_facts = [
 ]
 
 st.set_page_config(page_title="Document Text Summarizer", page_icon="🗒️", layout="wide")
-st.title("🗒️  NOTES BUILDER CHAN")
+st.title("🗒️  SUMMARY GENERATOR CHAN")
 
 # Creating a two-column layout
 col1, col2 = st.columns([3, 1])
