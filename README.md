@@ -30,10 +30,11 @@ fitz: Used for extracting text from PDF files.
 time: Used for adding time delays to simulate processing time.
 ## How to configure
 Install the recquired libraries:
-`pip install streamlit`
-`pip install python-pptx`
-`pip install python-docx`
-`pip install transformers pymupdf`
+`pip install streamlit`<br>
+`pip install python-pptx`<br>
+`pip install python-docx`<br>
+`pip install transformers`<br>
+`pip install pymupdf`
 ## How to Run
 `streamlit run document_summarizer.py`
 make sure to use your own filename
