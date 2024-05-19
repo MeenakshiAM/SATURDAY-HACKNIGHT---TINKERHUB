@@ -5,7 +5,7 @@
 
 
 
-# NOTES BUILDER CHAN
+# SUMMARY GENERATOR CHAN
 Content summarization app using Streamlit
 ## Team members
 1. [Varalakshmi K G](https://github.com/MeenakshiAM)
