@@ -8,9 +8,9 @@
 # NOTES BUILDER CHAN
 Content summarization app using Streamlit
 ## Team members
-1. [Varalakshmi K G](https://github.com/TH-Activities/saturday-hack-night-template)
-2. [Meenakshi A M](https://github.com/TH-Activities/saturday-hack-night-template)
-## Link to product walkthrough
+1. [Varalakshmi K G](https://github.com/MeenakshiAM)
+2. [Meenakshi A M](https://github.com/Varalakshmi2354)
+## product walkthrough
 [link to video](Link Here)
 ## How it Works ?
 1. The user can upload docx,pdf,pptx or text input from the user and generates summary
@@ -25,9 +25,9 @@ time: Used for adding time delays to simulate processing time.
 ## How to configure
 Install the recquired libraries:
 `pip install streamlit`
-`python-pptx`
-`python-docx`
-`transformers pymupdf`
+`pip install python-pptx`
+`pip install python-docx`
+`pip install transformers pymupdf`
 ## How to Run
 `streamlit run document_summarizer.py`
 make sure to use your own filename
