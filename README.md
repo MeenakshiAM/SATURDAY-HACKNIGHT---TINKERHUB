@@ -29,7 +29,7 @@ transformers: Used for accessing pre-trained natural language processing models,
 fitz: Used for extracting text from PDF files.
 time: Used for adding time delays to simulate processing time.
 ## How to configure
-Install the recquired libraries:
+Install the recquired libraries:<br>
 `pip install streamlit`<br>
 `pip install python-pptx`<br>
 `pip install python-docx`<br>
