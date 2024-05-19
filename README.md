@@ -23,8 +23,11 @@ transformers: Used for accessing pre-trained natural language processing models,
 fitz: Used for extracting text from PDF files.
 time: Used for adding time delays to simulate processing time.
 ## How to configure
-Install the recquired libraries
-`pip install streamlit python-pptx python-docx transformers pymupdf`
+Install the recquired libraries:
+`pip install streamlit`
+`python-pptx`
+`python-docx`
+`transformers pymupdf`
 ## How to Run
 `streamlit run document_summarizer.py`
 make sure to use your own filename
