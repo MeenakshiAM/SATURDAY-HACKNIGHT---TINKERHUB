@@ -11,7 +11,6 @@ Content summarization app using Streamlit
 1. [Varalakshmi K G](https://github.com/MeenakshiAM)
 2. [Meenakshi A M](https://github.com/Varalakshmi2354)
 ## product walkthrough
-[link to video](Link Here)
 
 ![Screenshot 2024-05-19 110629](https://github.com/MeenakshiAM/SATURDAY-HACKNIGHT---TINKERHUB/assets/140526841/bad5e54d-196b-4d51-8b00-544f1260f12f)
 ![Screenshot 2024-05-19 110645](https://github.com/MeenakshiAM/SATURDAY-HACKNIGHT---TINKERHUB/assets/140526841/32daa384-4a7c-4307-9f4d-d295dafdfdc4)
