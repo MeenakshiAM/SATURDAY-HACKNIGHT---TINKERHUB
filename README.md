@@ -12,6 +12,12 @@ Content summarization app using Streamlit
 2. [Meenakshi A M](https://github.com/Varalakshmi2354)
 ## product walkthrough
 [link to video](Link Here)
+
+![Screenshot 2024-05-19 110629](https://github.com/MeenakshiAM/SATURDAY-HACKNIGHT---TINKERHUB/assets/140526841/bad5e54d-196b-4d51-8b00-544f1260f12f)
+![Screenshot 2024-05-19 110645](https://github.com/MeenakshiAM/SATURDAY-HACKNIGHT---TINKERHUB/assets/140526841/32daa384-4a7c-4307-9f4d-d295dafdfdc4)
+![Screenshot 2024-05-19 111019](https://github.com/MeenakshiAM/SATURDAY-HACKNIGHT---TINKERHUB/assets/140526841/1c88226f-7a71-4241-bbe3-26f50221ade8)
+
+
 ## How it Works ?
 1. The user can upload docx,pdf,pptx or text input from the user and generates summary
 2. the user can play music while waiting for the summary to be generated
