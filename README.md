@@ -23,11 +23,11 @@ Content summarization app using Streamlit
 2. the user can play music while waiting for the summary to be generated
 ## Libraries used
 Streamlit: Used for building interactive web applications with Python.<br>
-pptx: Used to work with Microsoft PowerPoint files (PPTX).<br>
-docx: Used to work with Microsoft Word files (DOCX).<br>
-transformers: Used for accessing pre-trained natural language processing models, particularly the summarization pipeline.<br>
-fitz: Used for extracting text from PDF files.<br>
-time: Used for adding time delays to simulate processing time.
+`* ` pptx: Used to work with Microsoft PowerPoint files (PPTX).<br>
+`* ` docx: Used to work with Microsoft Word files (DOCX).<br>
+`* ` transformers: Used for accessing pre-trained natural language processing models, particularly the summarization pipeline.<br>
+`* ` fitz: Used for extracting text from PDF files.<br>
+`* ` time: Used for adding time delays to simulate processing time.
 ## How to configure
 Install the recquired libraries:<br>
 `pip install streamlit`<br>
